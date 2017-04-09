@@ -3319,8 +3319,10 @@ Func _FFXPath($sQuery, $sAttribute = "", $iReturnType = 9, $iFilter = 0)
 		Return 0
 	EndIf
 
-	If $sAttribute = Default Then $sAttribute = "textContent"
-	If $iReturnType = Default Then $iReturnType = 0
+	;change Default to real value, by Norstc, 2017-4-9
+	If $sAttribute = "" Then $sAttribute = "textContent"
+	If $iReturnType = 0 Then $iReturnType = 0
+	
 	$sQuery = StringReplace($sQuery, '"', "'")
 
 	Local $sResult, $sValue
